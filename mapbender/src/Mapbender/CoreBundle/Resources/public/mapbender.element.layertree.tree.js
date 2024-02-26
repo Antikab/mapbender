@@ -470,6 +470,23 @@
         }
       }
 
+      // Наш код Начало
+      // Включает информацию о слое, если включен слой  и выключает, если слой
+      const $targetInfo = $(e.currentTarget).next();
+      // если слой включен, то включаем вместе со слоем
+      if ($target.hasClass('active')) {
+        newStateInfo = $targetInfo.addClass('active').not('.active');
+        this.updateIconVisual_($targetInfo, newStateInfo, null);
+        layerInfo = $targetInfo.closest('li.leave').data('layer');
+        this.model.controlLayer(layerInfo, null, newStateInfo);
+      } else  {
+        newStateInfo = $targetInfo.removeClass('active').hasClass('active');
+        this.updateIconVisual_($targetInfo, newStateInfo, null);
+        layerInfo = $targetInfo.closest('li.leave').data('layer');
+        this.model.controlLayer(layerInfo, null, newStateInfo);
+      }
+      // Наш код Конец
+
       return false;
     },
     _toggleInfo: function (e) {
