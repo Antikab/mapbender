@@ -1,0 +1,319 @@
+mb:
+  actions:
+    accept: Оке́й
+    add: Добавить
+    back: Назад
+    cancel: Отменить
+    close: Закрыть
+    delete: Удалить
+    edit: Редактировать
+    filter: Фильтровать
+    print: Печать
+    refresh: Обновить
+    remove: Удалить
+    reset: Сброс
+    save: Сохранить
+    search: Поиск
+  terms:
+    application:
+      singular: Приложение
+      plural: Приложения
+    source:
+      singular: Источник
+      plural: Источники
+    layerset:
+      singular: Слой  # @todo: this is simply "layer"
+      plural: Слои
+    sourceinstance:
+      singular: Экземпляр
+      plural: Экземпля́ры
+      typed:
+        singular: '%type% экземпляр'
+    security: Безопасность
+  states:
+    active: активный
+    inactive: неактивный
+  core:
+    featureinfo:
+      error:
+        nolayer: 'Не существует функция инфо-слой.'
+        unknownoption: 'Неизвестный или необрабатываемый параметр %key% для %namespace%.%widgetname%.'
+        noresult: 'Ничего не найдено'
+      class:
+        title: Инфосвойства
+        description: Инфосвойства
+    aboutdialog:
+      content:
+        versionprefix: v.
+        learnmore: 'Посетите наш Mapbender'
+        linktitle: 'Посетите наш официальный сайт Mapbender'
+        website: сайт
+      class:
+        title: 'Раздел о программе'
+        description: 'Показать раздел о программе'
+      tag:
+        help: справка
+        info: инфо
+        about: 'о программе'
+    simplesearch:
+      input:
+        search: Поиск
+      class:
+        title: 'Простой Поиск'
+        description: 'Поле поиска источников (например Solr)'
+      error:
+        geometry:
+          missing: Выбраный объект не содержит геометрии.
+    searchrouter:
+      no_results: 'Не найдено результатов.'
+      result_counter: 'Результаты: %count%'
+      class:
+        title: Поиск
+        description: 'Настраиваемый элемент поиска '
+      tag:
+        search: поиск
+        router: маршрут
+    poi:
+      sharepoi: 'Поделиться POI'
+      text:
+        snippet: 'Вы можете использовать следующий фрагмент кода в электронной почте, чтобы отправить POI'
+      class:
+        title: POI
+        description: 'Создать POI для обмена'
+      label:
+        text: Текст
+    basesourceswitcher:
+      error:
+        sourcenotavailable: 'Источник с идентификатором %%d% не доступен'
+      class:
+        title: 'Базовый источник коммутатор'
+        Description: 'Изменить фоновые источники  карты '
+      form:
+        mesage: 'Нет исходного набора.'
+    legend:
+      class:
+        title: Легенда
+        description: 'Легенда показывает легенды слоев карты'
+    ruler:
+      create_error: 'Линейка: Тип должен быть линией или областью.'
+      class:
+        title: Линейка/Зона
+        description: 'Линейку, чтобы нарисовать линию/зону и расчитать длина/площадь в окне'
+      tag:
+        line: линия
+        area: область
+        measure: мера
+    printclient:
+      label:
+        template: Шаблон
+        quality: Качество
+        scale: Масштаб
+        rotation: Вращение
+        legend: 'Легенда'
+      class:
+        title: Печать
+        description: 'Отображает диалоговое окно печати'
+      btn:
+        deactivate: ~
+        activate: ~
+    overview:
+      nolayer: 'Обзор элемента не имеет слоя.'
+      class:
+        title: Обзор
+        description: 'Показывает небольшую обзорну карту'
+      tag:
+        overview: обзор
+        map: карта
+    metadata:
+      popup:
+        title: Метаданные
+    gpsposition:
+      error:
+        notsupported: 'Геолокационные сервисы не поддерживаются вашим браузером.'
+        nosignal: Невозможно определить ваше местоположение.
+      class:
+        title: GPS-положение
+        description: 'Отображает кнопку, чтобы показать позицию GPS'
+      tag:
+        gpsposition: GPS-положение
+        gps: GPS
+        position: положение
+        button: кнопка
+    layertree:
+      const:
+        outofscale: 'Слой вне масштаба'
+        outofbounds: 'Слой за пределами поля'
+        parentinvisible: 'Родительский слой невидим'
+      tooltip:
+        sublayers_openclose: 'Подслои открыть/закрыть'
+        removelayer: 'Удалить слой'
+        menu:
+          close: Закрыть
+      label:
+        visibility_onoff: 'Видимость вкл/выкл'
+        featureinfo_onoff: 'Инфосвойства вкл/выкл'
+        opacity: Прозрачность
+        zoomtolayer: 'Масштаб по слоюr'
+        metadata: Метаданные
+        legend: Легенда
+        kmlexport: 'Kml экспорт'
+        dimension_onoff: 'Вкл/Выкл Измерение'
+        dimension: Измерение
+        sourcevisibility_onoff: 'Вкл/Выкл Сервисы'
+      class:
+        title: 'Дерево слоев'
+        description: 'Дерево слоев карты'
+    zoombar:
+      zoombybox: Масштаб
+      zoombyworld: Кругозор
+      zoomin: Приблизить
+      zoomout: Отдалить
+      class:
+        title: 'Панель навигации'
+        description: 'Панель навигации обеспечивает  управления для панорамирования и масштабирования, аналогично в элементу OpenLayers PanZoomBar. Этот элемент проще в использовании, когда необходимы пользовательские стили .'
+      tag:
+        zoom: Масштаб
+        pan: панорама
+        control: элемент
+        navigation: навигация
+        panel: панель
+    activityindicator:
+      class:
+        title: 'Индикатор активности'
+        description: 'Показывает активность http'
+      tag:
+        activity: активности
+        indicator: индикатор
+    button:
+      class:
+        title: Кнопка
+        description: Кнопка
+      tag:
+        button: кнопка
+    coordinatesdisplay:
+      class:
+        title: 'Отображение координат '
+        description: 'Отображение координат показывает ваше положение курсора мыши в координатах карты.'
+      tag:
+        coordinates: координаты
+        display: Отображение
+        mouse: мышь
+        position: положение
+    copyright:
+      class:
+        title: Copyright
+        description: 'Показать Условия использования'
+      tag:
+        copyright: Copyright
+        dialog: Раздел
+    map:
+      class:
+        title: Карта
+        description: 'OpenLayers карта'
+      tag:
+        map: карта
+        mapquery: MapQuery
+        openlayers: OpenLayers
+      srsnotfound: 'SRS свойства для  %srslist% не найдены'
+    scalebar:
+      class:
+        title: 'Масштабная линейка'
+        description: 'В масштабной линейки индикатора, показывает текущий масштаб карты.'
+      tag:
+        scale: масштаб
+        bar: bar
+    scaledisplay:
+      class:
+        title: 'Масштаб отображения'
+        description: 'Отображает текущий масштаб карты'
+      tag:
+        scale: масштаб
+        display: Отображение
+    scaleselector:
+      class:
+        title: 'Шкала масштаба'
+        description: 'Отображает и изменяет масштаб карты'
+      tag:
+        scale: масштаб
+        selector: выбор
+    srsselector:
+      class:
+        title: 'SRS '
+        description: 'Система пространственной привязки  меняет карту пространственной системы отсчета'
+      tag:
+        srs: SRS
+        selector: выбор
+    admin:
+      poi:
+        label:
+          usemailto: 'Использование mailto'
+      legend:
+        label:
+          hideemptylayers: 'Скрыть пустые слои'
+          generatelegendurl: 'Генерировать URL легенды'
+          showsourcetitle: 'Показать название источника'
+          showlayertitle: 'Показать название слоя'
+          showgroupedlayertitle: 'Показать название группы слоев'
+      featureinfo:
+        label:
+          deactivateonclose: 'Деактивировать при закрытии'
+          onlyvalid: 'Только действительные'
+          highlighting: ~
+      printclient:
+        label:
+          rotatable: Поворачиваемые
+          legend: 'Легенда'
+          legend_default_behaviour: 'Legend checkbox active'
+      layertree:
+        label:
+          showbasesources: 'Показать базу источника'
+          showlayerremove: 'Показать удаление слоя'
+          usetheme: 'Тематический слой'
+          themes: Темы
+          theme:
+            opened: 'Вкл/Выкл Рубрику'
+            activate: 'Enabling Layer Add / Remove'
+            useTheme: 'Показать рубрики'
+            label: Рубрика
+          hidenottoggleable: 'Скрыть не переключаемые папки'
+          hideselect: 'Скрыть видимость у папок'
+          hideinfo: 'Скрыть информацию'
+      template:
+        sidepane:
+          type:
+            label: ~
+            choice:
+              tabs: Вкладки
+              accordion: ~
+    htmlelement:
+      class:
+        title: HTML
+        description: 'Добавить тэги HTML'
+    entity:
+      app:
+        screenshotfile:
+          error: Ошибка
+    sketch:
+      geometrytype:
+        point: Точка
+        line: Линия
+        polygon: Полигон
+        rectangle: Прямоугольник
+        circle: Круг
+      geometry:
+        action:
+          remove: 'Удалить геометрию'
+          edit: 'Редактировать геометрию'
+          zoom: 'Показать геометрию'
+      class:
+        title: ~
+        description: ~
+      admin:
+        deactivate_on_close: Деактивировать при закрытии
+
+# Login exceptions
+"Bad credentials.": 'Ошибка аутентификации'
+"User account is locked.": 'Учетная запись заблокирована.'
+"User account is disabled.": 'Учетная запись деактивирована.'
+'User account has expired.': 'Срок действия учетной записи истёк.'
+'User credentials have expired.': 'Срок действия пароля истёк.'
