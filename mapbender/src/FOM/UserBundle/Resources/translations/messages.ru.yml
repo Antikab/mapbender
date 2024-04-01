@@ -1,7 +1,11 @@
 fom:
+  acl:
+    group_label:
+      anonymous: Анонимные пользователи
+      authenticated: Все авторизованные пользователи
   user:
     registration:
-      email_body_html: '<p>Здравствуй %user_username%,</p><p>вы только недавно зарегистрировались. Для завершения Вашей регистрации, пожалуйста, нажмите <a href="%url%">здесь</a>.</p>'
+      email_body_html: '<p>Здравствуй %user_username%,</p><p>вы недавно зарегистрировались в Mapbender3. Для завершения Вашей регистрации, пожалуйста, нажмите <a href="%url%">здесь</a>.</p>'
       done:
         title: Регистрация
         congratulations: 'Поздравляем, регистрация прошла успешно!'
@@ -40,7 +44,7 @@ fom:
     login:
       error_tockenexp:
         title: 'Восстановление Пароля'
-        sorry: Извените!
+        sorry: Извините!
         registration_token_expired: 'К сожалению временный период подтверждения Вашей регистрации истёк, попробуйте запросить новый регистрационный токен.'
         request_new_token: 'Запросить новый токен'
         back_to_login: 'Вернуться на страницу входа'
@@ -80,7 +84,7 @@ fom:
         choose_password: 'Выберите пароль'
         confirm_password: 'Подтвердите пароль'
         name: Имя
-        users_of_selected: 'groups of %users_count% selected'
+        users_of_selected: 'групп %users_count% выбрано'
         no_groups_defined: Нет групп
         username: 'Имя пользователя'
         description: Описание
@@ -116,7 +120,7 @@ fom:
       email_subject: 'Забыли пароль'
       send:
         title: 'Восстановление пароля'
-        email_been_sent: 'E-mail сброса пароля был отправлен на указанный Вами адрес.'
+        email_been_sent: 'E-mail для сброса пароля был отправлен на указанный Вами адрес.'
         back_to_login: 'Вернуться на страницу входа'
       email_body_text: 'Здравствуйте %user_username%, Вы запросили новый пароль. Откройте в браузере ссылку "%url%".'
     userbundle:
@@ -141,7 +145,7 @@ form:
       notes: Заметка
       phone: Телефон
       organizationName: Организация
-      organizationRole: должность
+      organizationRole: Должность
       street: Улица
       zipCode: 'Почтовый индекс'
       city: Город

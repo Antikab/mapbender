@@ -1,19 +1,20 @@
 mb:
   actions:
-    accept: Оке́й
+    accept: ОК
     add: Добавить
     back: Назад
     cancel: Отменить
     close: Закрыть
     delete: Удалить
-    edit: Редактировать
-    filter: Фильтровать
+    edit: Правка
+    filter: Фильтр
     print: Печать
     refresh: Обновить
     remove: Удалить
     reset: Сброс
     save: Сохранить
     search: Поиск
+    duplicate: Дублировать
   terms:
     application:
       singular: Приложение
@@ -22,26 +23,43 @@ mb:
       singular: Источник
       plural: Источники
     layerset:
-      singular: Слой  # @todo: this is simply "layer"
+      singular: Слой
       plural: Слои
     sourceinstance:
       singular: Экземпляр
-      plural: Экземпля́ры
+      plural: Экземпляры
       typed:
         singular: '%type% экземпляр'
+      reusable:
+        singular: 'Общий экземпляр'
+        plural: 'Общие экземпляры'
+      bound:
+        singular: 'Привязанный экземпляр'
+        plural: 'Привязанные экземпляры'
     security: Безопасность
+  form:
+    choice_required: 'Выберите один'
+    choice_optional: Нет
+    unnamed_entry: 'Безымянная запись'
   states:
     active: активный
     inactive: неактивный
   core:
     featureinfo:
       error:
-        nolayer: 'Не существует функция инфо-слой.'
-        unknownoption: 'Неизвестный или необрабатываемый параметр %key% для %namespace%.%widgetname%.'
-        noresult: 'Ничего не найдено'
+        nolayer: 'Слой информации об объекте не существует.'
+        unknownoption: 'Неизвестный или необработанный параметр %key% для %namespace%.%widgetname%.'
+        noresult: 'ничего не найдено'
       class:
         title: Инфосвойства
         description: Инфосвойства
+      admin:
+        maxcount: 'Максимальное количество'
+        height: Высота
+        width: Ширина
+        displaytype: 'Тип отображения'
+        tabs: Вкладки
+        accordion: Аккордеон
     aboutdialog:
       content:
         versionprefix: v.
@@ -53,43 +71,109 @@ mb:
         description: 'Показать раздел о программе'
       tag:
         help: справка
-        info: инфо
+        info: информация
         about: 'о программе'
+      admin:
+        tooltip: О программе
     simplesearch:
       input:
+        searchterm: 'Искать термин'
         search: Поиск
+        clear: Очистить
       class:
         title: 'Простой Поиск'
-        description: 'Поле поиска источников (например Solr)'
+        description: 'Одиночное поле поиска по JSON-источникам (например, Solr)'
       error:
         geometry:
-          missing: Выбраный объект не содержит геометрии.
+          missing: 'Выбранный объект не содержит геометрии.'
+      admin:
+        configurations: Конфигурации
+        title: Заголовок
+        title.help: 'Текст, отображаемый в раскрывающемся списке конфигураций'
+        placeholder: Заполнитель
+        placeholder.help: 'Текст, который будет отображаться, когда поле поиска пусто. Если заполнитель не определен, вместо него используется содержимое заголовка.'
+        query_url: 'URL-адрес запроса'
+        query_url.help: 'URL-адрес Solr или Nominatim для поиска (например, <code>https://nominatim.openstreetmap.org/search.php?format=geojson</code>)'
+        query_key: 'Ключ параметра URL-адреса запроса'
+        query_key.help: 'Добавляемый ключ параметра запроса (например, <code>q</code>).'
+        query_ws_replace: 'Запрос шаблона замены пробелов'
+        query_ws_replace.help: 'Если установлено, пробелы и разрывы строк в поисковом запросе будут заменены, например. <code>+</code> или <code>%20</code>'
+        query_format: 'Формат ключа запроса'
+        query_format.help: 'Формат для <a href="https://www.php.net/manual/en/function.sprintf.php" target="_blank">sprintf</a> PHP. Поисковый запрос будет интерпретироваться с использованием этого формата. Например. <code>%s</code> (по умолчанию), если ожидается строка, <code>%d</code>, если ожидается целое число'
+        token_regex: 'Токенизатор: разделение регулярных выражений'
+        token_regex.help: 'Токенизатор позволяет изменять условия поиска до того, как они будут отправлены на URL-адрес поиска. Регулярное выражение разделения должно соответствовать всем символам, разделяющим токены (обычно слова). По умолчанию: <code> </code> (пробел).'
+        token_regex_in: 'Токенизатор: поиск по регулярному выражению'
+        token_regex_in.help: 'Внутри каждого токена (см. «Регулярное выражение разделения») это регулярное выражение будет найдено и заменено значением «Регулярное выражение замены».'
+        token_regex_out: 'Токенизатор: замена регулярного выражения'
+        token_regex_out.help: 'Внутри каждого токена (см. раздел «Регулярное выражение разделения») будет выполняться поиск регулярного выражения из «Регулярное выражение поиска» и заменяться этим значением. На найденные группы будут ссылаться <code>$</code> и возрастающие числа. Например. <code>$1*</code> добавит звездочку к каждому искомому слову.'
+        collection_path: 'Путь результатов'
+        collection_path.help: 'Путь, указывающий на массив результатов в ответе URL-адреса поиска. Уровни иерархии разделяются точками. Например. <code>response.docs</code> (Solr Standard), <code>features</code> (GeoJSON)'
+        label_attribute: 'Атрибут метки'
+        label_attribute.help: 'Путь (в пределах одного результата) к атрибуту, который будет использоваться в качестве метки, например. <код>label</code>. Альтернативно можно ввести строковый шаблон, например <code>Город ${properties.address.city} – ${properties.address.road}</code>'
+        geom_attribute: 'Атрибут геометрии'
+        geom_attribute.help: 'Путь (в пределах одного результата) к атрибуту, предоставляющему геометрию, например. <code>geom</code>, <code>geometry</code> (GeoJSON)'
+        geom_format: 'Формат геометрии'
+        geom_format.help: 'Предоставленный формат геометрии: либо <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry" target="_blank">Well Known Text</a>, либо <a href="https://geojson". .org/" target="_blank">GeoJSON</a>'
+        sourceSrs: 'Источник SRS'
+        sourceSrs.help: '<a href="https://epsg.io/" target="_blank">код EPSG</a> проекции, используемой в URL-адресе поиска, включая префикс <code>EPSG:</code>, например: <code>EPSG:25832</code>. Если этот параметр не установлен, предполагается, что результаты будут получены в картографической проекции по умолчанию.'
+        delay: 'Задержка поиска [мс]'
+        delay.help: 'Автоматический поиск запустится через столько миллисекунд после последнего ввода ключа. По умолчанию: 300 мс'
+        result_buffer: 'Буфер результатов [единицы карты]'
+        result_buffer.help: 'Косвенно определяет уровень масштабирования, который появляется после выбора результата. По крайней мере, выбранная область видна вокруг геометрии. Единицы измерения карты различаются в зависимости от проекции, в большинстве случаев они равны метрам. Комбинация с параметрами шкалы (мин/макс) возможна, но может привести к нежелательным результатам.'
+        result_minscale: 'Минимальный масштаб [знаменатель]'
+        result_minscale.help: 'Альтернатива указанию уровня масштабирования. В зависимости от границ целевой геометрии устанавливается масштаб между <code>min</code> и <code>max</code>. При масштабе <code>1 : 1000</code> необходимо ввести только <code>1000</code>. Для фиксированного масштаба достаточно ввести минимальный масштаб.'
+        result_maxscale: 'Максимальный масштаб [знаменатель]'
+        result_icon_url: 'URL-адрес значка'
+        result_icon_url.help: 'URL-адрес файла изображения, который будет использоваться в качестве маркера для геометрии точек. Может быть относительным или абсолютным. Для стандартного вывода используйте <code>/bundles/mapbendercore/image/pin_red.png</code>.'
+        result_icon_offset: 'Смещение значка'
+        result_icon_offset.help: 'Корректировка положения значка в виде смещения по осям x и y, разделенного запятыми, например <code>-6,-32</code> для стандартного контакта'
+      errors:
+        invalid_query_format: 'Указанный формат запроса не содержит заполнителей. Прочтите раздел помощи!'
+        invalid_epsg_code: 'Введенный текст не является действительным кодом EPSG. Введите код в формате EPSG:1234.'
+        no_configuration_added: 'Пожалуйста, добавьте хотя бы одну конфигурацию'
     searchrouter:
-      no_results: 'Не найдено результатов.'
-      result_counter: 'Результаты: %count%'
+      no_results: 'Результатов не найдено.'
+      result_counter: 'Найдено: %count%'
+      exportcsv: 'Экспорт результатов в CSV.'
       class:
-        title: Поиск
-        description: 'Настраиваемый элемент поиска '
+        title: 'Маршрут поиска'
+        description: 'Конфигурировать элемент маршрута поиска'
       tag:
         search: поиск
         router: маршрут
+      admin:
+        width: Ширина
+        height: Высота
+        routes: Маршруты
     poi:
       sharepoi: 'Поделиться POI'
       text:
         snippet: 'Вы можете использовать следующий фрагмент кода в электронной почте, чтобы отправить POI'
+      popup:
+        btn:
+          position: Позиционирование
       class:
         title: POI
         description: 'Создать POI для обмена'
       label:
         text: Текст
+      admin:
+        body: Содержание
+        gps: GPS
+        placeholder: 'Пожалуйста, взгляните на этот POI'
     basesourceswitcher:
       error:
         sourcenotavailable: 'Источник с идентификатором %%d% не доступен'
       class:
-        title: 'Базовый источник коммутатор'
-        Description: 'Изменить фоновые источники  карты '
+        title: 'Переключатель базового источника'
+        Description: 'Изменение источников фона карты.'
       form:
-        mesage: 'Нет исходного набора.'
+        mesage: 'Набор базовых источников не определен.'
+        instancesets: Наборы экземпляров
+      admin:
+        tooltip: Подсказка
+        instances: Экземпляры
+        instancesets: Наборы Экземпляров
     legend:
       class:
         title: Легенда
@@ -98,11 +182,19 @@ mb:
       create_error: 'Линейка: Тип должен быть линией или областью.'
       class:
         title: Линейка/Зона
-        description: 'Линейку, чтобы нарисовать линию/зону и расчитать длина/площадь в окне'
+        description: 'Линейку, чтобы нарисовать линию/зону и рассчитать длина/площадь в окне'
       tag:
         line: линия
         area: область
         measure: мера
+      help: 'Дважды щелкните, чтобы завершить рисование'
+      admin:
+        type: Геометрия
+        help: Подсказка
+        help_help: 'Значение по умолчанию <code>mb.core.ruler.help</code> переводится как «Двойной щелчок, чтобы завершить рисование» на языке пользователя.'
+        stroke_width_while_drawing: 'Толщина линии при рисовании'
+        only_for_area: 'актуально только в том случае, если для геометрии установлено значение <i>Area</i>'
+        style: Стиль
     printclient:
       label:
         template: Шаблон
@@ -114,16 +206,21 @@ mb:
         title: Печать
         description: 'Отображает диалоговое окно печати'
       btn:
-        deactivate: ~
-        activate: ~
+        deactivate: 'Деактивировать рамку печати'
+        activate: 'Активировать рамку печати'
     overview:
-      nolayer: 'Обзор элемента не имеет слоя.'
+      nolayer: 'Элемент обзора не имеет слоя.'
       class:
         title: Обзор
-        description: 'Показывает небольшую обзорну карту'
+        description: 'Показывает небольшую обзорную карту'
       tag:
         overview: обзор
         map: карта
+      admin:
+        visibility.closed_initially: 'Первоначально закрыто'
+        visibility.open_initially: 'Первоначально открыто'
+        visibility.open_permanent: 'Постоянно открыто'
+        layerset: Набор слоев
     metadata:
       popup:
         title: Метаданные
@@ -139,6 +236,11 @@ mb:
         gps: GPS
         position: положение
         button: кнопка
+      admin:
+        average: Средний
+        follow: Следовать
+        centeronfirstposition: 'Центр на первой позиции'
+        zoomtoaccuracyonfirstposition: 'Масштабирование с точностью до первой позиции'
     layertree:
       const:
         outofscale: 'Слой вне масштаба'
@@ -153,7 +255,7 @@ mb:
         visibility_onoff: 'Видимость вкл/выкл'
         featureinfo_onoff: 'Инфосвойства вкл/выкл'
         opacity: Прозрачность
-        zoomtolayer: 'Масштаб по слоюr'
+        zoomtolayer: 'Масштаб по слою'
         metadata: Метаданные
         legend: Легенда
         kmlexport: 'Kml экспорт'
@@ -163,37 +265,73 @@ mb:
       class:
         title: 'Дерево слоев'
         description: 'Дерево слоев карты'
+      admin:
+        layerremove: 'Удалить слой'
+        opacity: Непрозрачность
+        zoomtolayer: 'Приблизить к слою'
+        metadata: Метаданные
+        dimension: Измерение
     zoombar:
-      zoombybox: Масштаб
-      zoombyworld: Кругозор
-      zoomin: Приблизить
-      zoomout: Отдалить
+      zoombybox: 'Масштаб по рамке'
+      zoombyworld: 'Масштаб по миру'
+      zoom_home: 'К началу'
+      zoomHomeRestoresLayers: '"К началу" также сбрасывает настройки слоя'
+      zoomin: 'Приблизить'
+      zoomout: 'Уменьшить'
       class:
-        title: 'Панель навигации'
-        description: 'Панель навигации обеспечивает  управления для панорамирования и масштабирования, аналогично в элементу OpenLayers PanZoomBar. Этот элемент проще в использовании, когда необходимы пользовательские стили .'
+        title: 'Панель навигации.'
+        description: 'Элемент панели инструментов навигации предоставляет плавающий элемент управления для панорамирования и масштабирования, аналогичный элементу управления OpenLayers PanZoomBar. Однако этот элемент проще использовать, когда требуется индивидуальный стиль.'
       tag:
         zoom: Масштаб
         pan: панорама
         control: элемент
         navigation: навигация
         panel: панель
+      admin:
+        components: Компоненты
+        rotation: Вращение
+        zoommax: 'Увеличить до максимальной степени'
+        zoominout: 'Увеличение и уменьшение масштаба'
+        zoomslider: 'Ползунок масштабирования'
     activityindicator:
       class:
         title: 'Индикатор активности'
-        description: 'Показывает активность http'
+        description: 'Показывает активность HTTP'
       tag:
         activity: активности
         indicator: индикатор
+      admin:
+        tooltip: Подсказка
+        activityclass: 'CSS-класс Общей активности'
+        ajaxactivityclass: 'CSS-класс Фоновой активности'
+        ajaxactivityclass_help: 'CSS-класс, который устанавливается, когда действие активно в фоновом режиме (например, выполняется поиск).'
+        tileactivityclass: 'CSS-класс Загрузки карты'
     button:
       class:
         title: Кнопка
         description: Кнопка
       tag:
         button: кнопка
+      admin:
+        click: Нажатие
+        action: Действие
+        deactivate: Деактивировать
+    controlbutton:
+      class:
+        description: 'Управляет другим элементом'
+      admin:
+        group: Группа
+        target: Цель
+    linkbutton:
+      class:
+        title: Ссылка
+        description: 'Ссылка на внешний URL'
+      admin:
+        click: 'Целевой URL'
     coordinatesdisplay:
       class:
-        title: 'Отображение координат '
-        description: 'Отображение координат показывает ваше положение курсора мыши в координатах карты.'
+        title: 'Отображение координат'
+        description: 'Отображение координат показывает положение вашей мыши в координатах карты.'
       tag:
         coordinates: координаты
         display: Отображение
@@ -201,11 +339,13 @@ mb:
         position: положение
     copyright:
       class:
-        title: Copyright
+        title: Авторские права
         description: 'Показать Условия использования'
       tag:
-        copyright: Copyright
-        dialog: Раздел
+        copyright: Авторские права
+        dialog: окно
+      admin:
+        content: Содержание
     map:
       class:
         title: Карта
@@ -215,6 +355,14 @@ mb:
         mapquery: MapQuery
         openlayers: OpenLayers
       srsnotfound: 'SRS свойства для  %srslist% не найдены'
+      admin:
+        fixedZoomSteps: 'Исправленные шаги масштабирования'
+        layersets: Наборы слоев
+        tilesize: 'Размер тайлов'
+        SRS: SRS
+        scales: 'Масштабы (через запятую)'
+        othersrs: 'Другие SRS'
+        srs: SRS
     scalebar:
       class:
         title: 'Масштабная линейка'
@@ -222,7 +370,15 @@ mb:
       tag:
         scale: масштаб
         bar: bar
+      admin:
+        maxwidth: 'Максимальная ширина'
+        units: Единица
     scaledisplay:
+      label: Масштаб
+      scale_prefix: Префикс
+      scale_prefix.help: 'Описание показано перед фактическим масштабом. Стандартный <code>mb.core.scaledisplay.label</code> отображается как <code>Scale</code> на языке пользователя.'
+      unit_prefix: 'Сокращенный масштаб'
+      unit_prefix.help: 'Если этот флажок установлен, номера шкалы выше 1000 будут сокращены с помощью постпозиции <code>K</code> или <code>M</code>.'
       class:
         title: 'Масштаб отображения'
         description: 'Отображает текущий масштаб карты'
@@ -236,59 +392,143 @@ mb:
       tag:
         scale: масштаб
         selector: выбор
+      admin:
+        tooltip: Подсказка
     srsselector:
       class:
-        title: 'SRS '
-        description: 'Система пространственной привязки  меняет карту пространственной системы отсчета'
+        title: 'SRS селектор'
+        description: 'Селектор системы пространственной привязки изменяет систему пространственной привязки карты.'
       tag:
         srs: SRS
-        selector: выбор
+        selector: селектор
+      admin:
+        srsselector: 'SRS селектор'
+        tooltip: Подсказка
+    ShareUrl:
+      class:
+        title: 'Поделиться URL-адресом'
+        description: 'Поделиться текущим видом карты по URL'
+      copied_to_clipboard: 'URL-адрес скопирован в буфер обмена'
+    viewManager:
+      class:
+        title: 'Посмотреть менеджер'
+        description: 'Сохраняет состояния карты для последующего восстановления.'
+      saveAsPublic: 'Сохранить как общедоступный'
+      recordStatus:
+        public: 'Публичная запись'
+        private: 'Приватная запись'
+      confirmDelete: 'Подтвердить удаление'
+      no_data: 'Нет данных'
+      title: Заголовок
+      date: Дата
+      enter_title: 'Введите название'
+      apply: Применить
+      replace: Заменить
+      details: 'Показать детали'
+      admin:
+        access.none: 'Не показывать'
+        access.ro: 'Только чтение'
+        access.rw: 'Разрешить сохранение'
+        access.rwd: 'Разрешить сохранение и удаление'
+        publicEntries: 'Публичный список'
+        privateEntries: 'Показать приватный список'
+        adminDeleteHint: 'Примечание: администратор всегда может удалить публичные записи.'
+        allowAnonymousSave: 'Разрешить сохранение анонимным пользователям'
+        showDate: 'Показать дату'
+    coordinatesutility:
+      class:
+        title: 'Утилита координат'
+        description: 'Преобразуйте координаты в разные SRS. Перейдите к координатам на карте.'
+      widget:
+        error:
+          noSrs: 'SRS не определен'
+          invalidCoordinates: 'Неверные координаты'
+      view:
+        srs:
+          title: 'Система координат'
+          tooltip: 'Система координат'
+        transformedCoordinates:
+          tooltip: 'Преобразованные координаты'
+        copytoclipboard:
+          tooltip: 'Скопировать в буфер обмена'
+        originCoordinates:
+          title: 'Координата в справочной системе карты'
+          tooltip: 'только чтение'
+        button:
+          search: 'Координатный поиск'
+          centermap: 'Центр карты'
+      backend:
+        addMapSrsList: 'Добавить список источников карты'
+      admin:
+        srslist: 'Список SRS'
+        zoomlevel: 'Уровень масштабирования'
     admin:
       poi:
         label:
-          usemailto: 'Использование mailto'
+          usemailto: 'Использовать Mailto'
       legend:
         label:
           hideemptylayers: 'Скрыть пустые слои'
-          generatelegendurl: 'Генерировать URL легенды'
+          generatelegendurl: 'Создать URL-адрес легенды'
           showsourcetitle: 'Показать название источника'
-          showlayertitle: 'Показать название слоя'
-          showgroupedlayertitle: 'Показать название группы слоев'
+          showlayertitle: 'Показать заголовок слоя'
+          showgroupedlayertitle: 'Показать заголовок сгруппированного слоя'
       featureinfo:
         label:
           deactivateonclose: 'Деактивировать при закрытии'
           onlyvalid: 'Только действительные'
-          highlighting: ~
+          highlighting_group: Подсветка
+          highlighting: 'Подсветка включена'
+          default_group: По-умолчанию
+          hover_group: 'При наведении'
+          fillColor: 'Цвет заливки'
+          strokeColor: 'Цвет обводки'
+          opacity_pct: 'Прозрачность (%)'
+          stroke_width_px: 'Ширина штриха (пикселей)'
+          fontColor: 'Цвет шрифта'
+          fontSize: 'Размер шрифта'
       printclient:
         label:
-          rotatable: Поворачиваемые
-          legend: 'Легенда'
-          legend_default_behaviour: 'Legend checkbox active'
+          rotatable: Поворачиваемый
+          legend: 'Печать легенды'
+          legend_default_behaviour: 'Флажок легенды активен'
+          required_fields_first: 'Сначала отображать обязательные поля'
       layertree:
         label:
-          showbasesources: 'Показать базу источника'
-          showlayerremove: 'Показать удаление слоя'
+          showbasesources: 'Показать базовые источники'
+          showlayerremove: 'Показывать удаление слоя'
           usetheme: 'Тематический слой'
           themes: Темы
           theme:
-            opened: 'Вкл/Выкл Рубрику'
-            activate: 'Enabling Layer Add / Remove'
-            useTheme: 'Показать рубрики'
-            label: Рубрика
-          hidenottoggleable: 'Скрыть не переключаемые папки'
-          hideselect: 'Скрыть видимость у папок'
+            opened: открыт
+            activate: 'Включение добавления/удаления слоев'
+            useTheme: 'Показывать тему'
+            label: 'название темы'
+          hidenottoggleable: 'Скрытие не переключается'
           hideinfo: 'Скрыть информацию'
+          menu: Меню
       template:
         sidepane:
           type:
-            label: ~
+            label: Тип
             choice:
-              tabs: Вкладки
-              accordion: ~
+              tabs: Кнопки
+              accordion: Аккордеон
+              unstyled: Без стиля
+      button:
+        show_label: 'Показать метку'
+        label: Метка
+      layerset:
+        label:
+          title: Заголовок
+          selected: Выбрано
     htmlelement:
       class:
         title: HTML
-        description: 'Добавить тэги HTML'
+        description: 'Добавьте немного HTML'
+      admin:
+        content: Содержание
+        classes: Классы
     entity:
       app:
         screenshotfile:
@@ -300,17 +540,115 @@ mb:
         polygon: Полигон
         rectangle: Прямоугольник
         circle: Круг
+      inputs:
+        label: Метка
+        radius: Радиус
       geometry:
         action:
           remove: 'Удалить геометрию'
           edit: 'Редактировать геометрию'
-          zoom: 'Показать геометрию'
+          zoom: 'Перейти к геометрии'
+          stop_drawing: 'Выйти из рисования'
       class:
-        title: ~
-        description: ~
+        title: Наброски
+        description: 'Инструмент рисования'
       admin:
-        deactivate_on_close: Деактивировать при закрытии
-
+        deactivate_on_close: 'Деактивировать при закрытии'
+        colors: Цвета
+        allow_custom_color: 'Разрешить собственный цвет'
+        geometrytypes: 'Типы геометрии'
+    redlining:
+      class:
+        title: Наброски
+    resetView:
+      class:
+        title: 'Сбросить вид'
+        description: 'Восстанавливает исходный вид карты и исходные настройки.'
+      admin:
+        resetDynamicSources: 'Удалить динамически загружаемые источники'
+    applicationSwitcher:
+      class:
+        title: 'Переключатель приложений'
+        description: 'Переключается на другое приложение, сохраняя текущую позицию на карте.'
+      admin:
+        open_in_new_tab: 'Открыть в новой вкладке'
+    coordinesdisplay:
+      admin:
+        numdigits: 'Количество десятичных знаков'
+        empty: Пусто
+        prefix: Префикс
+        separator: Разделитель
+        label: 'Показать метку'
+    searchrouterroute:
+      admin:
+        title: Заголовок
+        configuration: Конфигурация
+    instanceset:
+      admin:
+        title: Заголовок
+        group: Группа
+        instances: Экземпляры
+        instancesets: Наборы экземпляров
+    basebutton:
+      admin:
+        tooltip: Подсказка
+        icon: Значок
+    icon:
+      mb:
+        about: Информация
+        layer_tree: 'Дерево слоев'
+        feature_info: 'Информация о функции'
+        area_ruler: 'Линейка области'
+        polygon: Полигон
+        line_ruler: 'Линейка'
+        image_export: 'Экспорт изображений'
+        legend: Легенда
+      fa:
+        about: Группа
+        info: 'Информация (перевернутая)'
+        pin: Маркер
+        home: Домой
+        legend: Список
+        print: Печать
+        search: Поиск
+        layer_tree: Иерархия
+        logout: Выход
+        wms: Глобус
+        edit: Правка
+        wmc: Папка
+        coordinates: Координаты
+        poi: Булавка
+        camera: Камера
+        copyright: Авторские права
+        share: Поделиться
+        forward: Вперед
+        refresh: Обновить
+        earth: Земля
+        map: Карта
+        pin_alt: 'Булавка (Альтернативная)'
+        help: Помощь
+  template:
+    toolbar_menu_tooltip: 'Переключить меню'
+    region:
+      toolbar: 'Верхняя панель инструментов'
+      footer: Футер
+      sidepane: Боковая панель
+      content: 'Область карты'
+  demoapps:
+    themes: Темы
+    backgroundThemes: 'Темы фона'
+    baseMaps: 'Базовые карты'
+    aerialView: 'Вид с воздуха'
+    noBackground: 'Нет фона'
+    poi: 'Пожалуйста, взгляните на этот POI'
+    search: 'Поиск местоположения'
+    about: 'О программе Mapbender'
+  wms:
+    wmsloader:
+      repo:
+        instancelayerform:
+          label:
+            title: Заголовок
 # Login exceptions
 "Bad credentials.": 'Ошибка аутентификации'
 "User account is locked.": 'Учетная запись заблокирована.'

@@ -9,12 +9,39 @@ mb:
         noactivelayer: 'Нет активного слоя!'
       chooseformat: Формат
       class:
-        title: 'Экспорт изображения'
-        description: |
-          Позволяет экспортировать текущее отображение карты.
-          Доступны PNG и JPEG форматы.
+        description: Позволяет экспортировать текущее отображение карты. Доступны PNG и JPEG форматы.
       tag:
-        image: Изображение
-        export: Экспорт
+        image: изображение
+        export: экспорт
         jpeg: jpeg
         png: png
+    printclient:
+      tab:
+        settings: Настройки задания
+        joblist: Недавние задания
+      joblist:
+        header:
+          id: '№'
+          ctime: создано
+          status: статус
+        status:
+          pending: ожидание
+          processing: в процессе
+          finished: завершено
+        open: открыть
+        delete: удалить
+        cancel: отмена
+        nodata: нет данных
+        loading: загрузка
+    admin:
+      printclient:
+        renderMode:
+          label: Режим
+          choice:
+            direct: прямой
+            queued: по очереди
+        queueAccess:
+          label: Очередь заданий
+          choice:
+            global: глобально
+            private: приватно

@@ -7,6 +7,6 @@ fom:
           content: 'Действительно удалить%userGroup%?'
           btn:
             cancel: Отменить
-            ok: Ок
+            ok: ОК
     fields:
-      no_user_group_defined: 'Группа пользователя не установлена'
+      no_user_group_defined: 'Пользователь или группа не установлены'

@@ -12,147 +12,151 @@ mb:
       repo:
         macros:
           label:
-            formats: Формиат
+            formats: Форматы
         view:
           label:
             metadata: Метаданные
             contact: Контакт
-            details: Подробности
+            details: Детали
             layers: Слои
-            title: Название
+            title: Заголовок
             name: Имя
             version: Версия
-            originurl: '>Оригинал URL'
+            originurl: 'URL-адрес источника'
             abstract: Абстрактный
-            onlineresource: 'Интернет ресурс'
-            exceptionformats: 'Формат Исключение'
+            onlineresource: 'Интернет-ресурс'
+            exceptionformats: 'Форматы исключений'
             fees: Сборы
             accessconstraints: 'Ограничения доступа'
             person: Человек
             organization: Организация
             position: Позиция
             telephone: Телефон
-            facsimile: Телефакс
-            email: E-mail
+            facsimile: Факс
+            email: Эл. почта
             address: Адрес
-            addresstype: 'Тип Адреса'
+            addresstype: Тип адреса
             city: Город
-            state: Государство
-            postcode: 'Почтовые индекс'
+            state: Область / Штат
+            postcode: Индекс
             country: Страна
+          message:
+            cautionscalehint: 'Внимание: расчеты масштаба подлежат ограниченному разрешению ScaleHint в WMS 1.1.1!'
         instance:
           btn:
             save: Сохранить
-            cancel: Отменить
+            cancel: Отмена
           label:
-            originurl: 'Оригинал URL'
-            buffer: 'Кафель буфер'
-            ratio: 'BBOX фактор'
+            originurl: 'URL-адрес источника'
             visible: Видимый
-            basesource: 'База Источник'
+            basesource: Базовый источник
             proxy: Прокси
             transparency: Прозрачность
             tiled: Плиточный
-            title: Название
+            title: Заголовок
             minsc: Minsc
             maxsc: Maxsc
-            active: Активный
-            select: Выбрать
-            info: Информация
-            toggle: Переключатель
-            reorder: 'Изменения порядка'
-            allow: Позволять
-            'on': Включи
+            active: активно
+            select: выбрано
+            info: информация
+            toggle: переключить
+            reorder: переупорядочить
+            allow: разрешить
+            'on': 'вкл'
+            ratio: 'BBOX фактор'
+            buffer: 'Буфер Тайлов'
+            layerOrder: Порядок слоев
+            layerOrder.standard: стандарт
+            layerOrder.reverse: QGIS
           vendorspecific:
-            label: 'Vendor определенный'
-
-          message:
-            cautionscalehint: 'Внимание: расчеты Scale подлежат ограниченное разрешение шкалы в WMS 1.1.1!'
+            label: 'Зависит от поставщика'
         preview:
           title:
-            servicerepository: 'Обслуживание репозитория'
+            servicerepository: 'Сервисный репозиторий'
           label:
-            load: Загрузить
+            load: Загрузка
         layer:
           label:
-            name: Имя
-            title: Название
+            name: Название
+            title: Заголовок
             abstract: Абстрактный
-            queryable: Queryable
-            cascaded: Каскадная
+            queryable: Запрашиваемый
+            cascaded: Каскадный
             opaque: Непрозрачный
-            nosubset: 'Нет подгруппы'
-            fixedwidth: 'Фиксированная ширина'
-            fixedheight: 'Фиксированная Высота'
-            latlonbounds: LatLonBounds
-            boundingbox: BoundingBox
+            nosubset: Без Подмножества
+            fixedwidth: Фиксированная ширина
+            fixedheight: Фиксированная высота
+            latlonbounds: Границы широты и долготы
+            boundingbox: Ограничительная рамка
             srs: SRS
-            styles: Styles
-            legendurl: 'Легенда URL'
+            styles: Стили
+            legendurl: 'URL-адрес легенды'
             scale: Шкала
-            min: Минимальный
-            max: максимальная
-            scalehint: 'Масштаб Примечание'
+            min: Мин
+            max: Макс
+            scalehint: Подсказка по масштабу
             attribution: Атрибуция
-            onlineresource: 'Интернет ресурсов'
-            logourl: 'Logo URL'
+            onlineresource: 'Интернет-ресурс'
+            logourl: 'URL-адрес логотипа'
             identifier: Идентификатор
-            authority: Полномочия
+            authority: Власть
             url: URL
-            value: Значение
-            metadataurl: 'Метаданные URL'
+            value: Ценить
+            metadataurl: 'URL-адрес метаданных'
             dimension: Измерение
-            extent: Экстент
-            dataurl: 'Data URL'
-            featurelisturl: 'Featurelist URL'
+            extent: Степень
+            dataurl: 'URL-адрес данных'
+            featurelisturl: 'URL списка функций'
         instancelayerform:
           label:
             layerstitle: 'Название слоя'
-            minscale: 'Минимальная шкала'
-            maxsclase: 'Максимальная Шкала'
-            active: Активный
-            allowselecttoc: 'Разрешить Выберите в TOC'
-            selectedtoc: 'Выбранный на TOC'
-            allowinfotoc: 'Allow FeatureInfo at TOC'
-            infotoc: 'FeatureInfo at TOC'
-            allowtoggletoc: 'Allow Toggle at TOC'
-            toggletoc: 'Toggle at TOC'
-            allowreordertoc: 'Разрешить Упорядочить по ТОС'
-            moreinfo: 'Больше информации'
+            minscale: Минимальный масштаб
+            maxsclase: Макс класс
+            active: активный
+            allowselecttoc: 'Разрешить выбор в оглавлении'
+            selectedtoc: 'Выбор слоя при запуске. Внимание: оставьте этот флажок установленным, если вы не используете тематические слои.'
+            selectedtoc.help: 'Набор слоев активен при запуске. Эту настройку следует менять только в том случае, если используются тематические слои.'
+            unselectedtoc.help: 'Набор слоев неактивен при запуске. Внимание: если тематические слои не используются, этот набор слоев будет недоступен.'
+            allowinfotoc: 'Разрешить Инфосвойства в оглавлении'
+            infotoc: 'Инфосвойства в оглавлении'
+            allowtoggletoc: 'Разрешить переключение в оглавлении'
+            toggletoc: 'Переключиться на содержание'
+            allowreordertoc: 'Разрешить изменение порядка в оглавлении'
+            moreinfo: Больше информации
             id:
-              title: Id
-              description: 'Instance Layer Id in the from of: SourceId-SourceLayerId/InstanceId-InstanceLayerId'
+              title: ID
+              description: 'Идентификатор слоя экземпляра в формате: SourceId-SourceLayerId/InstanceId-InstanceLayerId.'
             layersname: 'Имя слоя'
-            style: Style
+            style: Стиль
+      class:
+        title: 'WMS загрузчик'
+        description: 'Загружает WMS через getCapabilities-Request.'
       admin:
         label:
-          splitlayers: 'Разделение слои'
-      class:
-        title: 'WMS loader'
-        description: 'Загружает WMS через GetCapabilities-Request'
-    dimensionsets:
-      no_dimension: 'нет размерность'
-    dimhandler:
-      class:
-        title: 'Размеры проводник'
-        description: 'Размеры обработчики группы и называет размерность поддерживается экземпляров на карту'
+          splitlayers: 'Разделить слои'
     repository:
       parser:
-        couldnotparse: 'Не удалось проанализировать CapabilitiesDocument'
-        not_supported_document: 'Не поддерживается CapabilitiesDocument'
-        not_supported_version: 'Версия WMS не поддерживается'
+        couldnotparse: 'Не удалось проанализировать документ CapabilitiesDocument.'
+        not_supported_document: 'Неподдерживаемый CapabilitiesDocument'
+        not_supported_version: 'Версия WMS не поддерживается.'
     metadata:
       section:
         common:
-          _title: общий
+          _title: Общее
         useconditions:
-          _title: 'условия использования'
+          _title: 'Условия использования'
         contact:
-          _title: контакт
+          _title: Контакт
         items:
           _title: Слой
           name: Имя
     repo:
       instance:
         label:
-          dimensions: Dimensions
+          dimensions: Размеры
+    dimhandler:
+      class:
+        title: 'Обработчик размеров'
+        description: 'DimensionsHandler группирует и вызывает экземпляры поддерживаемых измерений на карте.'
+    dimensionsets:
+      no_dimension: 'нет измерения'

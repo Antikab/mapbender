@@ -24,111 +24,171 @@ mb:
       create:
         success: Новый образец был создан, но его нужно отредактировать.
   manager:
-    autoActivate: Автоактивирование
-    autoOpen: Открывать автоматически
+    automatic: Автоматически
+    autoActivate: Активировать автоматически
+    autoOpen: Открыть автоматически
+    confirm_form_discard: Отменить изменения?
+    popup_height: Высота диалогового окна
+    popup_width: Ширина диалогового окна
+    screentype:
+      label: Тип экрана
+      choice:
+        all: Любой
+        mobile: Мобильный
+        desktop: Компьютер
+    toolbar:
+      alignment:
+        label: Выравнивание
+        choice:
+          left: Левый
+          right: Верно
+          center: Центр
+      generate_button_menu: Создать меню для кнопок
+      menu_label: Ярлык меню
+    visibility: Видимость
+    element:
+      screentype:
+        mobile: Показать на экранах мобильных устройств
+        desktop: Показать на экранах настольных компьютеров
+    sidepane:
+      width: Ширина
+      closed: Первоначально закрыто
+      align:
+        label: Позиция
+        choice:
+          left: Лево
+          right: Право
+    sourceinstance:
+      embedded_in_applications: '{0} Этот экземпляр не используется ни в одном приложении|{1} Этот экземпляр используется в одном приложении|]1,Inf[ Этот экземпляр используется в %count% приложениях'
+      convert_to_reusable: Преобразование в общий экземпляр
+      convert_to_bound: Преобразование в связанный экземпляр
+      converted_to_bound: В приложение добавлена связанная копия общего экземпляра.
+      reusable_added_to_application: Общий экземпляр добавлен в приложение.
+      create_reusable: Создать общий экземпляр
+      created_reusable: Создан новый общий экземпляр.
+    application:
+      persistentView: Постоянное состояние карты
     admin:
       sources: Источники
+      csrf_token_invalid: 'Неверный токен CSRF.'
       source:
         add: 'Добавить источник'
         show_metadata: 'Показать метаданные'
         delete: 'Удалить источник'
         new:
           add: 'Добавить источник'
-        valid: 'Источник действительный'
-        notvalid: 'Источник не действительный'
+        valid: 'Источник действителен'
+        notvalid: 'Источник недействителен.'
         no_source: 'Нет доступного источника'
         update: 'Обновить источник'
         status:
-          ok: 'Источник OK'
-          toupdate: 'Источник больше не является текущим'
+          ok: 'Источник ОК'
+          toupdate: 'Источник больше не актуален'
           unreachable: 'Источник недоступен'
+        embedded_in_applications: '{0} Этот источник не назначен ни одному приложению|{1} Этот источник назначен одному приложению|]1,Inf[ Этот источник назначен %count% приложений'
       map:
-        max_extent: 'Макс. область'
-        start_extent: 'Начало области'
+        max_extent: 'Макс. степень'
+        start_extent: 'Начальный экстент'
+        base_dpi: Разрешение по умолчанию [точек на дюйм]
+        base_dpi.help: Разрешение адаптируется к разрешению экрана на основе настроенного значения.
       element:
-        title: Название
+        title: Заголовок
         type: Тип
-        add: 'Добавить новый элемент в'
-        show_hide: 'Вкл/выкл элемент'
-        no_element_added: Элемент не добавлен
+        add: 'Добавьте новый элемент в'
+        show_hide: 'Переключить показать/скрыть элемент'
+        no_element_added: Ни один элемент не добавлен
+        anchor:
+          label: Позиция
+          left-top: Верхний левый
+          left-bottom: Внизу слева
+          right-top: В правом верхнем углу
+          right-bottom: Внизу справа
       zoombar:
         draggable: Перетаскиваемый
       overview:
-        fix: Закрепить
+        fix: Исправить
       layerset:
-        add: 'Добавить слои'
-        title: Название
+        add: 'Добавить набор слоев'
+        title: Заголовок
         type: Тип
-        edit: 'Редактировать слои'
+        edit: 'Редактировать набор слоев'
         delete:
-          title: 'Удалить слои'
-          confirm: 'Вы действительно хотите удалить слои с названием <span class="italic">%layerset_title%</span>?'
+          title: 'Удалить набор слоев'
+          confirm: 'Вы действительно хотите удалить набор слоев с заголовком <span class="italic">%layerset_title%</span>?'
         id: Id
       instance:
-        add: 'Добавить образец'
-        show_hide: 'Вкл/выкл образец'
-        edit: 'Редактировать образец'
+        add: 'Добавить экземпляр'
+        show_hide: 'Переключить показать/скрыть экземпляр'
+        edit: 'Редактировать экземпляр'
         delete:
-          title: 'Удалить образец'
-          confirm: 'Do you really want to remove the instance with the title <span class="italic">%instance_title%</span>?'
-        no_instance_added: 'Образец не добавлен'
+          title: 'Удалить экземпляр'
+          confirm: 'Вы действительно хотите удалить экземпляр с заголовком <span class="italic">%instance_title%</span>?'
+        no_instance_added: 'Экземпляр не добавлен'
         no_layer_added: 'Слой не добавлен'
+        max_input_vars_exceeded: 'PHP устанавливает слишком низкое значение max_input_vars для количества слоев в этом экземпляре.'
+        update_successful: 'Ваш экземпляр обновлен.'
+        converted_to_shared: Экземпляр преобразован в общий экземпляр.
       template: Шаблон
       application:
-        view: Обзор
+        view: Вид
         edit:
           title: 'Редактировать приложение'
-          base_data: 'Базовые данные'
-        screenshot: Скриншот
-        layouts: 'Панели инструментов'
-        layersets: Слои
-        custom_css: CSS
+          base_data: 'Основные настройки'
+        screenshot: Миниатюра
+        layouts: Раскладка
+        layersets: Наборы слоёв
+        custom_css: CSS-стили
         security:
           title: Безопасность
-          public: публичный доступ
+          public: Публичный доступ
         save: Сохранить
-        cancel: Отменить
-        view_this: 'Показать приложение'
-        duplicate: 'Создать копию приложения'
+        cancel: Отмена
+        view_this: 'Посмотреть это приложение'
+        duplicate: 'Дублировать приложение'
         public:
-          on_off: 'Вкл/выкл публикацию приложения'
+          on_off: 'Переключить публикацию/отмену публикации приложения'
         delete: 'Удалить приложение'
         no_application: 'Нет доступных приложений'
         new:
           title: 'Новое приложение'
-        create_use: 'Заполните основную информацию при создании нового приложения, а затем используйте режим редактирования, чтобы добавить элементы и слои.'
+        create_use: "Создайте новое приложение, заполнив основную информацию, а затем\n используйте режим редактирования, чтобы добавить элементы и слои."
         btn:
-          create: Создать
-          cancel: Отменить
+          create: Создавать
+          cancel: Отмена
         upload:
-          button: 'Выбрать файл'
+          button: 'Выберите файл'
           label: 'Файл не выбран'
         export:
-          addAcl: ACLs
+          addAcl: ACL
           addSources: Источники
           btn:
             export: Экспорт
         import:
-          addAcl: ACLs
+          addAcl: ACL
           addSources: Источники
           btn:
             import: Импорт
-        title: Название
+        title: Заголовок
         url:
-          title: 'URL заголовок'
+          title: 'URL-заголовок'
         description: Описание
-        template: Template
+        template: Шаблон
+        map_engine_code: Картографический движок
+        map_engine_code.ol2: OpenLayers 2 (поддержка)
+        map_engine_code.current: OpenLayers 6
     source:
-      serviceurl: 'Сервис URL'
-      username: 'Имя пользователя'
+      serviceurl: 'URL-адрес службы'
+      username: Имя пользователя
       password: Пароль
+      activate_new_layers: Активировать вновь добавленные слои
+      select_new_layers: Выберите недавно добавленные слои
       load: Загрузить
     managerbundle:
       new_application: 'Новое приложение'
       add_source: 'Добавить источник'
-      add_user_group: 'Добавить пользователей и группы'
+      add_user_group: 'Добавляйте пользователей и группы'
       acl_element: 'Acl элемент'
-      import_application: Импорт
+      import_application: Импортировать
       export_application: Экспорт
     components:
       popup:
@@ -137,34 +197,36 @@ mb:
         edit_element:
           title: 'Редактировать элемент'
         delete_element:
-          title: 'Подтвердить удаление'
+          title: 'Подтвердите удаление'
         add_edit_layerset:
-          title_edit: 'Редактировать слои'
-          title_add: 'Добавить слои'
+          title_edit: 'Редактировать набор слоев'
+          title_add: 'Добавить набор слоев'
         delete_layerset:
-          title: 'Удалить слои'
+          title: 'Удалить набор слоев'
         add_instance:
-          title: 'Выбрать источник'
+          title: 'Выберите источник'
         delete_instance:
-          title: 'Подтвердить удаления'
+          title: 'Подтвердите удаление'
         delete_user_group:
           title: 'Подтвердите удаление'
-          content: 'Действительно удалить%userGroup%?'
+          content: 'Действительно удалить %userGroup%?'
     import:
       application:
-        failed: 'Приложение не может быть импортировано'
-    xml_invalid: Документ не действует
-    xml_malformed: Документ не действует  # @todo: supply distinct message
+        failed: 'Приложение невозможно импортировать'
+    http_connection_error: Соединение не удалось
+    http_error_response: Удаленный сервер ответил сообщением об ошибке.
+    xml_invalid: Неверный документ
+    xml_malformed: Не XML-документ или неверная структура XML.
   core:
     admin:
       button:
-        show_label: 'Показать отметку'
+        show_label: 'Показать ярлык'
       element:
-        autostart: Автозапуск
+        autostart: Автоматический старт
     entity:
       app:
         screenshotfile:
-          error: 'Файл слишком большой (% uploadFileSize% байт). Допускается максимальный размер% MaxFileSize% байт.'
+          error: 'Файл слишком велик (%uploadFileSize% байт). Допустимый максимальный размер — %maxFileSize% байт.'
           format_error: 'Этот формат не поддерживается!'
           resolution:
-            error: 'Минимально возможное изображение должно быть равно или больше чем %screenshotHeight% х %screenshotWidth% пикселей. Загруженное Вами соответствует размеру в %uploadWidth% х %uploadHeighth%.'
+            error: 'Можно выбрать только файлы изображений с пикселями %screenshotHeight% x %screenshotWidth% или выше. Размер вашего файла – пиксель %uploadWidth% x %uploadHeighth%.'
